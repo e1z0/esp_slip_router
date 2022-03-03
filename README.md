@@ -3,6 +3,14 @@ A SLIP to WiFi router
 
 This is an implementation of a SLIP (Serial Line IP - RFC1055) router on the ESP8266. It can be used as simple (and slow) network interface to get WiFi connectivity. The ESP can act as STA or as AP. It transparently forwards any IP traffic through it. As it uses NAT no routing entries are required on the other side. 
 
+# Docker implementation
+
+The dockerized build environment have been made to ease the build process of the firmware, you can now simply write:
+```make build_latest```
+To build latest and/or modified firmware without worrying about esp-open-sdk build process, all required libs already included..
+You can also enter the built environment by issuing command:
+```make enter```
+
 # Usage as STA
 In this mode the ESP connects to the internet via an AP with ssid, password and offers at UART0 a SLIP interface with IP address 192.168.240.1. This default can be changed in the file user_config.h. 
 
