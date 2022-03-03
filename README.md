@@ -5,11 +5,20 @@ This is an implementation of a SLIP (Serial Line IP - RFC1055) router on the ESP
 
 # Docker implementation
 
-The dockerized build environment have been made to ease the build process of the firmware, you can now simply write:
-```make build_latest```
-To build latest and/or modified firmware without worrying about esp-open-sdk build process, all required libs already included..
+The dockerized build environment have been made to build latest and/or modified firmware without worrying about esp-open-sdk build process, all required libs already included to ease the build process of the firmware, you can now simply write:
+```
+make build_latest
+```
 You can also enter the built environment by issuing command:
-```make enter```
+```
+make enter
+```
+To flash using inside docker tools you can write:
+```
+make flash_latest /dev/ttyUSB0
+```
+### TODO
+* Enable build process of esp-open-lwip inside docker container
 
 # Usage as STA
 In this mode the ESP connects to the internet via an AP with ssid, password and offers at UART0 a SLIP interface with IP address 192.168.240.1. This default can be changed in the file user_config.h. 
