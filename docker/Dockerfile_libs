@@ -8,9 +8,10 @@ RUN add-apt-repository multiverse
 RUN apt-get -y update
 
 #Needed to build esp-sdk
+#List from https://github.com/pfalcon/esp-open-sdk
 RUN apt-get install -y make unrar autoconf automake libtool gcc g++ gperf \
     flex bison texinfo gawk ncurses-dev libexpat-dev python-dev python python-serial \
-    sed git unzip bash help2man wget bzip2
+    sed git unzip bash help2man wget bzip2 nano
 
 #Create a user to build the code
 RUN useradd --create-home -s /bin/bash builder
@@ -23,4 +24,5 @@ RUN sed -i.bkp -e \
 USER builder
 WORKDIR /home/builder
 COPY --chown=builder --from=hrishikesh/esp-open-sdk:latest /home/builder/esp-open-sdk /home/builder/esp-open-sdk
-RUN cd /home/builder/esp-open-sdk && git pull && git submodule sync && git submodule update --init && make
+RUN cd /home/builder/esp-open-sdk && git pull && git submodule sync && git submodule update --init && make && cd .. && \
+    git clone https://github.com/e1z0/esp-open-lwip.git && cd esp-open-lwip && make -f Makefile.open clean; make -f Makefile.open all

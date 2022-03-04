@@ -18,7 +18,8 @@ To flash using inside docker tools you can write:
 make flash_latest /dev/ttyUSB0
 ```
 ### TODO
-* Enable build process of esp-open-lwip inside docker container
+* <del>Enable build process of esp-open-lwip inside docker container</del>
+* <del>Fix privileged udp/tcp ports in lwip stack (cause of dns not working)</del>
 
 # Usage as STA
 In this mode the ESP connects to the internet via an AP with ssid, password and offers at UART0 a SLIP interface with IP address 192.168.240.1. This default can be changed in the file user_config.h. 
