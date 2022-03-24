@@ -23,7 +23,7 @@ make flash_latest /dev/ttyUSB0
 
 # Client guides
 
-* [serial wifi adapter for ms-dos](http://vintage2000.org/serial_wifi_adapter)
+* [serial wifi adapter for ms-dos and windows 3.1/9x](http://vintage2000.org/serial_wifi_adapter)
 
 
 # Usage as STA
